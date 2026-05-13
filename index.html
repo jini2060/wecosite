@@ -23,15 +23,14 @@
     }
 
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(247, 247, 243, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: none;
+   }
 
     .nav {
       max-width: 1180px;
@@ -43,26 +42,27 @@
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: white;
+}
 
-    .nav a {
-      color: #111;
-      text-decoration: none;
-      margin-left: 28px;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
 
     .nav a:hover {
       opacity: 0.55;
     }
 
     .hero {
-      min-height: 100vh;
-      padding: 160px 24px 90px;
+  min-height: 100vh;
+  padding: 0 24px;
       display: flex;
       align-items: center;
       background:
