@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WE-CO | Company Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #f7f7f3;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(247, 247, 243, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .nav a {
+      color: #111;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav a:hover {
+      opacity: 0.55;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 160px 24px 90px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.25)),
+        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero p:first-child {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 8vw, 96px);
+      line-height: 1;
+      max-width: 900px;
+      margin-bottom: 28px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero .subtitle {
+      max-width: 620px;
+      font-size: 20px;
+      opacity: 0.92;
+      margin-bottom: 36px;
+      animation: fadeUp 1.25s ease forwards;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #ffffff;
+      color: #111;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      opacity: 0.85;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 110px 24px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .text-large {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .card {
+      background: white;
+      padding: 34px;
+      border-radius: 22px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .project {
+      min-height: 320px;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      background: #ddd;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+
+    .project:hover img {
+      transform: scale(1.06);
+    }
+
+    .project span {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      color: white;
+      background: rgba(0,0,0,0.55);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .contact {
+      background: #111;
+      color: white;
+      border-radius: 34px;
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.1;
+    }
+
+    .contact p {
+      color: #ddd;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .two-column,
+      .services,
+      .project-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 40px 26px;
+      }
+
+      section {
+        padding: 78px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">WE-CO</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p>WE CORPORATION</p>
+        <h1>Reliable solutions for modern projects.</h1>
+        <p class="subtitle">We deliver practical, efficient and trusted services for businesses, builders and project partners.</p>
+        <a class="button" href="#contact">Contact Us</a>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <p class="section-label">About Us</p>
+      <div class="two-column">
+        <h2 class="section-title">Built on trust, precision and long-term partnership.</h2>
+        <p class="text-large">WE-CO is a professional company focused on delivering dependable project support and business solutions. We work closely with clients to understand their needs, manage details carefully and create results that last.</p>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Services designed to support every stage of your project.</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Project Support</h3>
+          <p>Clear communication, careful planning and reliable coordination for smooth project delivery.</p>
+        </div>
+        <div class="card">
+          <h3>Business Solutions</h3>
+          <p>Practical support tailored to client needs, helping businesses move forward with confidence.</p>
+        </div>
+        <div class="card">
+          <h3>Consulting</h3>
+          <p>Professional guidance based on experience, detail and a strong understanding of project goals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <p class="section-label">Projects</p>
+      <h2 class="section-title">A clean space to showcase your company work.</h2>
+      <div class="project-grid">
+        <div class="project">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Office project" />
+          <span>Commercial Projects</span>
+        </div>
+        <div class="project">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80" alt="Construction project" />
+          <span>Project Management</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="contact">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>Let’s work together.</h2>
+        </div>
+        <div>
+          <p>Email: info@we-co.net</p>
+          <p>Website: www.we-co.net</p>
+          <p>Location: Sydney, Australia</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 WE-CO. All rights reserved.
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
