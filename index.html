@@ -83,16 +83,12 @@ overflow-x: hidden;
       width: 100%;
     }
 
-    .hero p:first-child {
-      font-size: 14px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-      opacity: 0.9;
-    }
-
     .hero h1 {
-      font-size: clamp(46px, 8vw, 96px);
+      font-size: clamp(40px, 6vw, 76px);
+}
+    .small-title {
+  font-size: 0.7em;
+}
       line-height: 1;
       max-width: 900px;
       margin-bottom: 28px;
@@ -323,9 +319,10 @@ overflow-x: hidden;
   <main>
     <section class="hero">
       <div class="hero-content">
-        <p>WE CORPORATION</p>
-        <h1>All about shoes<br>WE Corporation</h1>
-        </div>
+        <h1>
+  <span class="small-title">All about shoes</span><br>
+  WE Corporation
+  </h1>
     </section>
 
     <section id="about" class="reveal">
