@@ -71,7 +71,17 @@ overflow-x: hidden;
     }
 
     .nav-links {
-      display: none;
+       display: none;
+       position: absolute;
+       top: 90px;
+       right: 48px;
+       flex-direction: column;
+       gap: 18px;
+       text-align: right;
+    }
+
+   .nav-links.active {
+       display: flex;
     }
 
    .hamburger {
@@ -444,5 +454,14 @@ overflow-x: hidden;
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
+ 
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
