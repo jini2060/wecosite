@@ -70,6 +70,26 @@ overflow-x: hidden;
       opacity: 0.55;
     }
 
+    .nav-links {
+      display: none;
+    }
+
+   .hamburger {
+     width: 34px;
+     height: 24px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+    cursor: pointer;
+    }
+
+   .hamburger span {
+     display: block;
+     height: 3px;
+     background: white;
+     border-radius: 999px;
+   }
+    
     .hero {
   min-height: 100vh;
     max-width: none;
@@ -323,10 +343,16 @@ overflow-x: hidden;
   <img src="CI(white).png" alt="WE-CO Logo">
 </div>
       <div class="nav-links">
-        <a href="#about">About</a>
+        <a href="#about us">About</a>
         <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
+        <a href="#partners">Projects</a>
         <a href="#contact">Contact</a>
+      </div>
+      
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </nav>
   </header>
