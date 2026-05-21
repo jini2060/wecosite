@@ -322,7 +322,110 @@ overflow-x: hidden;
       opacity: 1;
       transform: translateY(0);
     }
+    .contact-section {
+  background: #f7f7f3;
+  padding: 100px 70px 70px;
+  max-width: none;
+}
 
+.contact-box {
+  background: #111;
+  color: white;
+  border-radius: 18px;
+  padding: 90px 110px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contact-label {
+  font-size: 15px;
+  letter-spacing: 5px;
+  margin-bottom: 38px;
+}
+
+.contact-left h2 {
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 1.15;
+  letter-spacing: -3px;
+}
+
+.contact-right {
+  border-left: 1px solid rgba(255,255,255,0.28);
+  padding-left: 80px;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+  color: white;
+  text-decoration: none;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item i {
+  font-size: 34px;
+}
+
+.contact-item span {
+  display: block;
+  font-size: 18px;
+  opacity: 0.78;
+  margin-bottom: 6px;
+}
+
+.contact-item p {
+  font-size: 22px;
+  margin: 0;
+}
+
+.instagram:hover {
+  opacity: 0.65;
+}
+
+.footer {
+  background: #f7f7f3;
+  border-top: 1px solid #d9d9d9;
+  padding: 55px 90px;
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: none;
+}
+
+.footer-logo img {
+  width: 160px;
+}
+
+.footer-info {
+  border-left: 1px solid #cfcfcf;
+  padding-left: 42px;
+}
+
+.footer-info h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.footer-info p,
+.footer-copy {
+  font-size: 16px;
+  color: #666;
+}
+
+.footer-copy {
+  text-align: center;
+}
+    
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -447,25 +550,63 @@ overflow-x: hidden;
       </div>
     </section>
 
-    <section id="contact" class="reveal">
-      <div class="contact">
+   <section id="contact" class="contact-section">
+  <div class="contact-box">
+    <div class="contact-left">
+      <p class="contact-label">CONTACT</p>
+      <h2>Let’s work<br>together.</h2>
+    </div>
+
+    <div class="contact-right">
+      <div class="contact-item">
+        <i class="fa-regular fa-envelope"></i>
         <div>
-          <p class="section-label">Contact</p>
-          <h2>Let’s work together.</h2>
-        </div>
-        <div>
-          <p>Email: info@we-co.net</p>
-          <p>Website: www.we-co.net</p>
-          <p>Location: Sydney, Australia</p>
+          <span>Email</span>
+          <p>info@we-co.net</p>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer>
+      <div class="contact-item">
+        <i class="fa-solid fa-globe"></i>
+        <div>
+          <span>Website</span>
+          <p>www.we-co.net</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <span>Location</span>
+          <p>Busan, Korea</p>
+        </div>
+      </div>
+
+      <a class="contact-item instagram" href="https://www.instagram.com/너희계정아이디" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+        <div>
+          <span>Instagram</span>
+          <p>@we.corporation_official</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="CI(navy).png" alt="WE Corporation Logo">
+  </div>
+
+  <div class="footer-info">
+    <h3>WE. CORPORATION</h3>
+    <p>CEO: Young-Hwan WI &nbsp;&nbsp; | &nbsp;&nbsp; License: 876-81-02011</p>
+  </div>
+
+  <div class="footer-copy">
     © 2026 WE-CO. All rights reserved.
-  </footer>
-
+  </div>
+</footer>
   <script>
     const revealElements = document.querySelectorAll('.reveal');
 
