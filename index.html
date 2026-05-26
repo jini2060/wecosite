@@ -515,6 +515,44 @@ overflow-x: hidden;
   padding: 50px 24px;
   background: #f7f7f3;
 }
+
+ .products-section {
+  max-width: none;
+  background: #e9ecef;
+  padding: 80px 48px 90px;
+  text-align: center;
+}
+
+.products-title {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 58px;
+}
+
+.product-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 36px;
+}
+
+.product-card img {
+  width:100%;
+  aspect-ratio:1.12/1;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.product-card h3 {
+  margin-top:22px;
+  font-size:28px;
+}
+
+.product-card p {
+  margin-top:6px;
+  color:#333;
+}   
   </style>
 </head>
 <body>
@@ -585,20 +623,32 @@ overflow-x: hidden;
       </div>
     </section>
 
-    <section id="projects" class="reveal">
-      <p class="section-label">Projects</p>
-      <h2 class="section-title">A clean space to showcase your company work.</h2>
-      <div class="project-grid">
-        <div class="project">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Office project" />
-          <span>Commercial Projects</span>
-        </div>
-        <div class="project">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80" alt="Construction project" />
-          <span>Project Management</span>
-        </div>
-      </div>
-    </section>
+   <section id="projects" class="products-section reveal">
+
+<h2 class="products-title">OUR PRODUCT</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="golf.png">
+<h3>Golf</h3>
+<p>Performance footwear for the course</p>
+</div>
+
+<div class="product-card">
+<img src="safety.png">
+<h3>Safety</h3>
+<p>Built for protection and durability</p>
+</div>
+
+<div class="product-card">
+<img src="lifestyle.png">
+<h3>Lifestyle</h3>
+<p>Comfort and style for everyday</p>
+</div>
+
+</div>
+</section>
 
    <section id="contact" class="contact-section">
   <div class="contact-box">
