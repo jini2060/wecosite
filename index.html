@@ -517,10 +517,11 @@ overflow-x: hidden;
 }
 
  .products-section {
-  max-width: none;
-  background: #e9ecef;
-  padding: 80px 48px 90px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 40px;
   text-align: center;
+  background: transparent;
 }
 
 .products-title {
@@ -539,9 +540,14 @@ overflow-x: hidden;
 
 .product-card img {
   width:100%;
-  aspect-ratio:1.12/1;
+  height:320px;
   object-fit:cover;
-  border-radius:10px;
+  border-radius:18px;
+  transition:0.4s;
+}
+
+.product-card img:hover{
+  transform:translateY(-6px);
 }
 
 .product-card h3 {
@@ -636,7 +642,7 @@ overflow-x: hidden;
 </div>
 
 <div class="product-card">
-<img src="safety.jpg">
+<img src="safty.jpg">
 <h3>Safety</h3>
 <p>Built for protection and durability</p>
 </div>
