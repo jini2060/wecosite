@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WE-CO | Company Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #111;
+      background: #f7f7f3;
+      line-height: 1.6;
+      margin: 0;
+overflow-x: hidden;
+    }
+
+    header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: none;
+   }
+
+    .nav {
+     width: 100%;
+     margin: 0;
+     padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: white;
+}
+    .logo img {
+  height: 70px;
+  width: auto;
+  position: relative;
+  top: -10px;
+  left: -8px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+    .nav a:hover {
+      opacity: 0.55;
+    }
+
+    .nav-links {
+       display: none;
+       position: absolute;
+       top: 90px;
+       right: 48px;
+       flex-direction: column;
+       gap: 18px;
+       text-align: right;
+    }
+
+   .nav-links.active {
+       display: flex;
+    }
+
+   .hamburger {
+     width: 26px;
+     height: 18px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     cursor: pointer;
+     position: relative;
+     top: -15px;
+  }
+   .hamburger span {
+     display: block;
+     height: 2.5px;
+     background: white;
+     border-radius: 999px;
+   }
+    
+    .hero {
+  min-height: 100vh;
+    max-width: none;
+    padding: 0 48px;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.25)),
+        url('main.png') right center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      top: -70px;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 6.5vw, 86px);
+      line-height: 1;
+      max-width: 900px;
+      margin-bottom: 28px;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.45);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .small-title {
+      font-size: 0.9em;
+      display: inline-block;
+      margin-bottom: -45px;
+      font-weight: 600;
+      letter-spacing: -2.2px;
+    }
+
+    .brand-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: -2.2px;
+   }
+
+    .hero-desc {
+      margin-top: 13px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.78);
+      font-weight: 310;
+      letter-spacing: -0.3px;
+      animation: fadeUp 1.4s ease forwards;
+     
+   }
+      
+    .hero .subtitle {
+      max-width: 620px;
+      font-size: 20px;
+      opacity: 0.92;
+      margin-bottom: 36px;
+      animation: fadeUp 1.25s ease forwards;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #ffffff;
+      color: #111;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      opacity: 0.85;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 110px 24px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .two-column p {
+     font-size: 18px;
+     line-height: 1.8;
+     max-width: 680px;
+     color: #333;
+   }
+  
+   .text-large {
+     font-size: 20px;
+     color: #333;
+    }
+
+   .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .card {
+      background: white;
+      padding: 34px;
+      border-radius: 22px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .project {
+      min-height: 320px;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      background: #ddd;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+
+    .project:hover img {
+      transform: scale(1.06);
+    }
+
+    .project span {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      color: white;
+      background: rgba(0,0,0,0.55);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .contact {
+      background: #111;
+      color: white;
+      border-radius: 34px;
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.1;
+    }
+
+    .contact p {
+      color: #ddd;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .contact-section {
+  background: #f7f7f3;
+  padding: 100px 70px 70px;
+  max-width: none;
+}
+
+.contact-box {
+  background: #111;
+  color: white;
+  border-radius: 18px;
+  padding: 55px 90px;
+  min-height: 430px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contact-label {
+  font-size: 15px;
+  letter-spacing: 5px;
+  margin-bottom: 38px;
+}
+
+.contact-left h2 {
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 1.15;
+  letter-spacing: -3px;
+}
+
+.contact-right {
+  border-left: 1px solid rgba(255,255,255,0.28);
+  padding-left: 80px;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+  color: white;
+  text-decoration: none;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item i {
+  font-size: 34px;
+}
+
+.contact-item span {
+  display: block;
+  font-size: 18px;
+  opacity: 0.78;
+  margin-bottom: 6px;
+}
+
+.contact-item p {
+  font-size: 22px;
+  margin: 0;
+}
+
+.instagram:hover {
+  opacity: 0.65;
+}
+
+.footer {
+  max-width: none;
+  margin: 0;
+  padding: 55px 90px;
+  background: #f7f7f3;
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-logo img {
+  width: 190px;
+  height: auto;
+}
+
+.footer-info {
+  border-left: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.footer-info h3 {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: #222;
+}
+
+.footer-info p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0 0 4px;
+  white-space: normal;
+}
+
+.footer-info span {
+  display: block;
+  margin-top: 18px;
+  font-size: 12px;
+  color: #999;
+}
+
+.footer-copy {
+  display: none;
+}
+
+    
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .two-column,
+      .services,
+      .project-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 40px 26px;
+      }
+
+      section {
+        padding: 78px 20px;
+      }
+    }
+    .contact-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 90px 24px 60px;
+  background: #f7f7f3;
+}
+
+.contact-box {
+  border-radius: 14px;
+  padding: 46px 64px;
+  min-height: 360px;
+  box-sizing: border-box;
+}
+
+.contact-left h2 {
+  font-size: clamp(38px, 4vw, 62px);
+  line-height: 1.15;
+}
+
+.contact-item {
+  padding: 12px 0;
+  grid-template-columns: 38px 1fr;
+  gap: 18px;
+}
+
+.contact-item i {
+  font-size: 24px;
+}
+
+.footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 50px 24px;
+  background: #f7f7f3;
+}
+
+ .products-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  text-align: center;
+  background: transparent;
+}
+
+  .products-section .section-title {
+  max-width: none;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0 auto 60px;
+}
+
+.products-title {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 58px;
+}
+
+.product-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 36px;
+}
+
+.product-card img {
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:18px;
+  transition:0.4s;
+}
+
+.product-card img:hover{
+  transform:translateY(-6px);
+}
+
+.product-card h3 {
+  margin-top:22px;
+  font-size:28px;
+}
+
+.product-card p {
+  margin-top:6px;
+  color:#333;
+}   
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+  <img src="CI(white).png" alt="WE-CO Logo">
+</div>
+      <div class="nav-links">
+      <a href="about.html">About us</a>
+      <a href="technology.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="#contact">Contact</a>
+      </div>
+      
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+  <h1>
+    <span class="small-title">All about shoes</span><br>
+    <span class="brand-title">WE Corporation</span>
+    </h1>
+
+  <p class="hero-desc">
+  위코퍼레이션은 높은 기술력과 독창적 시선으로 신발 제조 시장을 선도하는 기업입니다.
+  </p>      
+    </section>
+
+    <section id="about" class="reveal">
+      <p class="section-label">About Us</p>
+      <div class="two-column">
+        <h2 class="section-title">Driven by technology and craftsmanship.</h2>
+        <p class="text-large">
+        WE Corporation은 ODM/OEM 생산 시스템을 기반으로 디자인부터 개발, 
+        생산까지 전 과정을 수행할 수 있는 높은 기술력과 독창적인 시선으로 차별화된 신발 제조 솔루션을 제공합니다.<br>
+        고객의 니즈를 이해하고 변화하는 시장에 맞춘 아이디어와 기술을 접목합니다.
+        국내외 다양한 파트너들과의 협업을 통해 안정적인 생산 시스템과 경쟁력 있는 제품을 만들어
+        신뢰있는 기업으로 성장하고 있습니다.  
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="reveal">
+      <p class="section-label">Our technology</p>
+      <h2 class="section-title"> Built with precision,<br>
+                                 innovation and trust.</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Precision</h3>
+          <p>정교한 생산 공정과 높은 기술력을 바탕으로 완성도 높은 제품을 만듭니다.</p>
+        </div>
+        <div class="card">
+          <h3>Innovation</h3>
+          <p>트렌드와 기능성을 고려한 독창적인 디자인과 지속적인 연구개발을 이어갑니다.</p>
+        </div>
+        <div class="card">
+          <h3>Trust</h3>
+          <p>국내외 다양한 파트너들과의 협업을 통해 신뢰할 수 있는 품질과 안정적인 생산 시스템을 제공합니다.</p>
+        </div>
+      </div>
+    </section>
+
+   <section id="projects" class="products-section reveal">
+
+<p class="section-label">OUR PRODUCT</p>
+
+<h2 class="section-title">
+Footwear crafted for<br>
+every purpose and lifestyle.
+</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="golf.jpg">
+<h3>Golf</h3>
+<p>Performance footwear for the course</p>
+</div>
+
+<div class="product-card">
+<img src="safty.jpg">
+<h3>Safety</h3>
+<p>Built for protection and durability</p>
+</div>
+
+<div class="product-card">
+<img src="lifestyle.jpg">
+<h3>Lifestyle</h3>
+<p>Comfort and style for everyday</p>
+</div>
+
+</div>
+</section>
+
+   <section id="contact" class="contact-section">
+  <div class="contact-box">
+    <div class="contact-left">
+      <p class="contact-label">CONTACT</p>
+      <h2>Let’s work<br>together.</h2>
+    </div>
+
+    <div class="contact-right">
+      <div class="contact-item">
+        <i class="fa-regular fa-envelope"></i>
+        <div>
+          <span>Email</span>
+          <p>info@we-co.net</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-globe"></i>
+        <div>
+          <span>Website</span>
+          <p>www.we-co.net</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <span>Location</span>
+          <p>Busan,South Korea</p>
+        </div>
+      </div>
+
+      <a class="contact-item instagram" href="https://www.instagram.com/we_corporation" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+        <div>
+          <span>Instagram</span>
+          <p>@we_corporation</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">
+    <img src="CI(navy).png" alt="WE Corporation Logo">
+  </div>
+
+  <div class="footer-info">
+    <h3>WE. CORPORATION</h3>
+
+    <p>
+      CEO: Young-Hwan WI &nbsp;&nbsp;
+      License: 876-81-02011 &nbsp;&nbsp;
+      <br> Code square 401-ho, 53, Yutongdanji 1-ro, Gangseo-gu 46721 Republic of Korea
+    </p>
+
+    <span>©2026 WE. Corporation. ALL RIGHTS RESERVED.</span>
+  </div>
+</footer>
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+ 
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+  });
+</script>
+</body>
+</html>
