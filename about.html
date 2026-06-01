@@ -655,6 +655,17 @@ overflow-x: hidden;
   line-height: 1.8;
   color: #333;
 }
+
+.history-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.history-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}    
     
   </style>
 </head>
@@ -709,7 +720,7 @@ overflow-x: hidden;
 
   <div class="history-wrap">
     <div class="history-image">
-      <img src="history.jpg" alt="WE Corporation History">
+      <img src="homepage1.png" alt="WE Corporation History">
     </div>
 
     <div class="history-list">
@@ -774,6 +785,18 @@ overflow-x: hidden;
 
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
+
+    const historyItems = document.querySelectorAll('.history-item');
+
+    const showHistoryItems = () => {
+    historyItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('show');
+    }, index * 300);
+    });
+    };
+
+   window.addEventListener('load', showHistoryItems);
   </script>
  
   <script>
