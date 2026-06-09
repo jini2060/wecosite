@@ -313,7 +313,23 @@
         flex-direction: column;
         gap: 30px;
       }
+
+      .footer {
+    border-top: none;
+    position: relative;
+   }
+
+   .footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 1px;
+    background: #ddd;
+  }
     }
+    
     .services-hero{
     max-width:1180px;
     margin:120px auto;
