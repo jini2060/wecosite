@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | WE Corporation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #111;
+      background: #f7f7f3;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    .nav {
+      width: 100%;
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+      position: relative;
+      top: -10px;
+      left: -8px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 90px;
+      right: 48px;
+      flex-direction: column;
+      gap: 18px;
+      text-align: right;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links a {
+      color: #111;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.55;
+    }
+
+    .hamburger {
+      width: 26px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      top: -15px;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 2.5px;
+      background: #111;
+      border-radius: 999px;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 120px 24px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.1;
+      font-weight: 800;
+      max-width: 800px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .two-column p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 680px;
+      color: #333;
+    }
+
+    .vision-section {
+      max-width: none;
+      background: #4f66b3;
+      color: white;
+      padding: 150px 24px;
+    }
+
+    .vision-section .section-label,
+    .vision-section h2 {
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .vision-section .section-label {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 30px;
+      padding-left: 24px;
+    }
+
+    .vision-section h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.3;
+      font-weight: 800;
+       padding-left: 24px;
+    }
+
+    .history-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 120px 24px;
+    }
+
+    .history-title {
+      font-size: 52px;
+      color: #071638;
+      margin-bottom: 70px;
+      font-weight: 800;
+    }
+
+    .history-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.4fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .history-image img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .history-list {
+      border-left: 1px solid #ddd;
+    }
+
+    .history-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 45px;
+      padding: 0 0 56px 50px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .history-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .history-item::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      left: -6px;
+      top: 16px;
+    }
+
+    .history-item strong {
+      font-size: 42px;
+      font-weight: 800;
+    }
+
+    .history-item p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 55px 90px;
+      background: #f7f7f3;
+      display: flex;
+      align-items: flex-start;
+      gap: 80px;
+      border-top: 1px solid #ddd;
+    }
+
+    .footer-logo img {
+      width: 190px;
+      height: auto;
+    }
+
+    .footer-info {
+      text-align: left;
+    }
+
+    .footer-info h3 {
+      font-size: 18px;
+      margin: 0 0 12px;
+      color: #222;
+    }
+
+    .footer-info p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+      margin: 0 0 4px;
+    }
+
+    .footer-info span {
+      display: block;
+      margin-top: 18px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        padding: 16px 20px;
+      }
+
+      section {
+        padding: 88px 20px;
+      }
+
+      .two-column,
+      .history-wrap {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .vision-section {
+        padding: 100px 20px;
+      }
+
+      .history-image img {
+        height: 420px;
+      }
+
+      .history-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding-left: 34px;
+      }
+
+      .footer {
+        padding: 45px 24px;
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html">
+          <img src="CI(navy).png" alt="WE Corporation Logo">
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="about.html">About us</a>
+        <a href="services.html">Services</a>
+        <a href="partners.html">Partners</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="reveal">
+      <p class="section-label">About Us</p>
+
+      <div class="two-column">
+        <h2 class="section-title">
+          Driven by technology and craftsmanship.
+        </h2>
+
+        <p>
+          WE Corporation은 ODM/OEM 생산 시스템을 기반으로 디자인부터 개발, 생산까지 전 과정을 수행할 수 있는 높은 기술력과 독창적인 시선으로 차별화된 신발 제조 솔루션을 제공합니다.<br>
+          고객의 니즈를 이해하고 변화하는 시장에 맞춘 아이디어와 기술을 접목합니다. 국내외 다양한 파트너들과의 협업을 통해 안정적인 생산 시스템과 경쟁력 있는 제품을 만들어 신뢰있는 기업으로 성장하고 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section id="vision" class="vision-section reveal">
+      <p class="section-label">VISION</p>
+
+      <h2>
+        함께하는 파트너와<br>
+        상생을 모토삼아<br>
+        글로벌 신발 제조회사로 발전하고 있습니다.
+      </h2>
+    </section>
+
+    <section id="history" class="history-section reveal">
+      <h2 class="history-title">HISTORY</h2>
+
+      <div class="history-wrap">
+        <div class="history-image">
+          <img src="homepage1.png" alt="WE Corporation History">
+        </div>
+
+        <div class="history-list">
+          <div class="history-item">
+            <strong>2021</strong>
+            <p>위코퍼레이션 설립<br>자체 무역 및 OEM 생산<br>부산시 친환경 신발 개발사업 선정</p>
+          </div>
+
+          <div class="history-item">
+            <strong>2022</strong>
+            <p>부산 스포츠 산업 선정<br>자체브랜드 디자인 및 상표등록<br>연간 매출 40억 달성</p>
+          </div>
+
+          <div class="history-item">
+            <strong>2023</strong>
+            <p>ODM 및 OEM 생산 가속화<br>다수 브랜드 신발 파트 론칭<br>ODM 안전화 개발 / 생산</p>
+          </div>
+
+          <div class="history-item">
+            <strong>2024</strong>
+            <p>ICEBERG / AMAZINGCRE<br>ODM 개발 / 생산</p>
+          </div>
+
+          <div class="history-item">
+            <strong>2025</strong>
+            <p>중국 브랜드 ECLEZA ODM 계약</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="CI(navy).png" alt="WE Corporation Logo">
+    </div>
+
+    <div class="footer-info">
+      <h3>WE. CORPORATION</h3>
+
+      <p>
+        CEO: Young-Hwan WI &nbsp;&nbsp;
+        License: 876-81-02011<br>
+        Code square 401-ho, 53, Yutongdanji 1-ro, Gangseo-gu 46721 Republic of Korea
+      </p>
+
+      <span>©2026 WE. Corporation. ALL RIGHTS RESERVED.</span>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    const historyItems = document.querySelectorAll('.history-item');
+
+    const showHistoryItems = () => {
+      historyItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('show');
+        }, index * 300);
+      });
+    };
+
+    window.addEventListener('load', showHistoryItems);
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
+
+ 
