@@ -573,6 +573,81 @@ overflow-x: hidden;
   margin-top:6px;
   color:#333;
 }   
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    height: 100vh;
+    padding: 0 28px;
+    background-position: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    left: 0;
+    padding: 0;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    line-height: 1.08;
+    word-break: keep-all;
+  }
+
+  .hero p {
+    font-size: 20px;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  .product-section,
+  .projects-section {
+    padding: 80px 24px;
+  }
+
+  .product-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .product-card img,
+  .project-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .contact-box {
+    width: calc(100% - 48px);
+    margin: 80px auto;
+    padding: 48px 28px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contact-title {
+    font-size: 42px;
+    line-height: 1.15;
+    word-break: keep-all;
+  }
+
+  .contact-info {
+    color: #fff;
+  }
+
+  .footer {
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    padding: 45px 24px;
+    flex-direction: column;
+    gap: 24px;
+  }
+}    
   </style>
 </head>
 <body>
