@@ -648,6 +648,91 @@ overflow-x: hidden;
     gap: 24px;
   }
 }    
+
+  @media (max-width: 768px) {
+
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 24px;
+    z-index: 999;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 32px;
+    right: 24px;
+    z-index: 1000;
+  }
+
+  .hamburger span {
+    background: #fff;
+  }
+
+  .hero {
+    height: 100vh;
+    padding: 0 32px;
+    background-position: center bottom;
+  }
+
+  .hero-content {
+    position: relative;
+    top: 32%;
+    transform: none;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+    line-height: 1.08;
+    word-break: keep-all;
+  }
+
+  .hero p {
+    font-size: 21px;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  .contact-box {
+    width: calc(100% - 40px);
+    margin: 80px auto;
+    padding: 48px 28px;
+    display: block;
+    overflow: hidden;
+  }
+
+  .contact-title {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 40px;
+  }
+
+  .contact-info {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .contact-item {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+  }
+
+  .contact-item p,
+  .contact-item a {
+    font-size: 20px;
+    word-break: break-word;
+  }
+}  
+    
   </style>
 </head>
 <body>
